@@ -47,6 +47,7 @@ class Piece:
     def rotate(self):
         self.shape = [list(row) for row in zip(*self.shape[::-1])]
 
+
 def check_collision(board, piece, offset_x=0, offset_y=0):
     for y, row in enumerate(piece.shape):
         for x, cell in enumerate(row):
@@ -59,11 +60,13 @@ def check_collision(board, piece, offset_x=0, offset_y=0):
                     return True
     return False
 
+
 def merge_piece(board, piece):
     for y, row in enumerate(piece.shape):
         for x, cell in enumerate(row):
             if cell and piece.y + y >= 0:
                 board[piece.y + y][piece.x + x] = piece.color
+
 
 def clear_lines(board):
     new_board = [row for row in board if any(cell == 0 for cell in row)]
@@ -71,6 +74,7 @@ def clear_lines(board):
     for _ in range(cleared):
         new_board.insert(0, [0 for _ in range(COLS)])
     return new_board, cleared
+
 
 def draw_board(screen, board, piece):
     for y, row in enumerate(board):
@@ -81,6 +85,7 @@ def draw_board(screen, board, piece):
         for x, cell in enumerate(row):
             if cell:
                 pygame.draw.rect(screen, piece.color, ((piece.x+x)*CELL_SIZE, (piece.y+y)*CELL_SIZE, CELL_SIZE-1, CELL_SIZE-1))
+
 
 def main():
     pygame.init()
@@ -137,6 +142,7 @@ def main():
     print("Game Over!")
     pygame.quit()
     sys.exit()
+
 
 if __name__ == "__main__":
     main()
