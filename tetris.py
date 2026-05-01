@@ -4,7 +4,7 @@ import pygame, random, sys
 CELL_SIZE = 30
 COLS, ROWS = 10, 20
 WIDTH, HEIGHT = COLS * CELL_SIZE, ROWS * CELL_SIZE
-WINDOW_SCALE = 1  # 70%
+WINDOW_SCALE = 1.5
 FPS = 60  # nombre de frames par seconde
 
 # --- Couleurs ---
