@@ -84,6 +84,11 @@ def draw_board(screen, board, piece):
 
 def main():
     pygame.init()
+    pygame.mixer.init()
+
+    # Charger et jouer la musique en boucle
+    pygame.mixer.music.load("tetris.mp3")
+    pygame.mixer.music.play(-1)  # -1 signifie boucle infinie
     screen = pygame.display.set_mode((int(WIDTH*WINDOW_SCALE), int(HEIGHT*WINDOW_SCALE)))
     pygame.display.set_caption("Tetris macOS")
     clock = pygame.time.Clock()
